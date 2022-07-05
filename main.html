@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="main.js"></script>
+    <link rel="shortcut icon" type="image/jpg" href="logo.png"/>
+    <title>RLCC QUIZ</title>
+
+    <style>
+        body{
+            background-color: rgb(1, 2, 22);
+            width: 80%;
+            margin: auto;
+            font-size: 1.2rem;
+            font-weight: bolder;
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        h1 {
+            background-color: red;
+            padding: 10px;
+            position: fixed;
+            border-radius: 20px;
+            top: 0;
+            right: 0;
+        }
+
+        .question{
+            color: yellow;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .button{
+            background-color: red;
+            border: 2px solid blue;
+            padding: 10px 15px;
+            color: whitesmoke;
+            font-size: 22px;
+        }
+
+        #userName{
+            padding: 15px;
+            border-radius: 2px solid blue;
+            border: none;
+        }  
+
+        .top{
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #start{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #instr{
+            text-align: left;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="top">
+    <h2>RLCC QUIZ</h2>
+    <h1 id="count" class="hidden">100 secs</h1>
+    <input type="text" id="userName" placeholder="Enter your Name Here"> <br><br>
+    <div id="instr">
+    <h5>Welcome to this week Quiz Session - Read Carefully, the instructions below</h5>
+    <small>You are to attempt the Quiz only once</small> <br>
+    <small>A Timer has been programmed to submit automatically after countdown</small> <br>
+    <small>You have 10secs for each question which makes it a total of 100seconds for the completion of the quiz</small> <br>
+    <small>Please, you are to screenshot our scores and send to the Church Whatsapp Group 😊😊😊</small>
+    <hr>
+</div>
+    </div>
+    <div id="start">
+        <button class="button" onclick="startQuiz()">START QUIZ</button>
+    </div>
+    
+    <form name="quiz" id="quiz">
+        
+        <div id="firstq" class="hidden">
+            <p class="question">1. The sandwich between rejoicing and open heaven is what?</p>
+            <p><input type="radio" name="question1" value="Fasting"> (a) Fasting</p>
+            <p><input type="radio" name="question1" value="Faith"> (b) Faith</p>
+            <p><input type="radio" name="question1" value="Prayer"> (c) Prayer</p>
+            <input type="button" onclick="Gotosec()" class="button" value="Next">
+        </div>
+
+        <div id="secondq" class="hidden">
+            <p class="question">2.The blessing of the Lord looks like?</p>
+            <p><input type="radio" name="question2" value="Covenant"> (a) Covenant</p>
+            <p><input type="radio" name="question2" value="Fruit"> (b) Fruit</p>
+            <p><input type="radio" name="question2" value="Church"> (c) Church</p>
+            <input type="button" onclick="Gotothird()" class="button" value="Next">
+        </div>
+    
+        <div id="thirdq" class="hidden">
+            <p class="question">3. These are biblical example of people that had adversaries except?</p>
+            <p><input type="radio" name="question3" value="Paul"> (a) Paul</p>
+            <p><input type="radio" name="question3" value="Joseph"> (b) Joseph</p>
+            <p><input type="radio" name="question3" value="David"> (c) David</p>
+            <input type="button" onclick="Gotofourth()" class="button" value="Next">
+        </div>
+         
+        <div id="fourthq" class="hidden">
+            <p class="question">4. What is the anchor scripture to the lesson "True Worship"?</p>
+            <p><input type="radio" name="question4" value="James 4 vs 19"> (a) James 4 vs 19</p>
+            <p><input type="radio" name="question4" value="Psalm 24 vs 3-5"> (b) Psalm 24 vs 3-5</p>
+            <p><input type="radio" name="question4" value="John 4 vs 24"> (c) John 4 vs 24</p>
+            <input type="button" onclick="Gotofifth()" class="button" value="Next">
+        </div>
+           
+        <div id="fifthq" class="hidden">
+            <p class="question">5. The word worship God with a broken and contrite heart can be gotten from the book of?</p>
+            <p><input type="radio" name="question5" value="Psalm"> (a) Psalm</p>
+            <p><input type="radio" name="question5" value="2 Cor"> (b) 2 Cor</p>
+            <p><input type="radio" name="question5" value="2 Chro"> (c) 2 Chro</p>
+            <input type="button" onclick="Gotosixth()" class="button" value="Next">
+        </div>
+            
+        <div id="sixthq" class="hidden">
+            <p class="question">6. The name Jehovah Shalom means</p>
+            <p><input type="radio" name="question6" value="The lord our God"> (a) The lord our God</p>
+            <p><input type="radio" name="question6" value="The lord our peace"> (b) The lord our peace</p>
+            <p><input type="radio" name="question6" value="The lord our provider"> (c) The lord our provider</p>
+            <input type="button" onclick="Gotoseventh()" class="button" value="Next">
+        </div>
+       
+        <div id="seventhq" class="hidden">
+            <p class="question">7. God has allocated airspace above everybody?</p>
+            <p><input type="radio" name="question7" value="Yes"> (a) Yes</p>
+            <p><input type="radio" name="question7" value="No"> (b) No</p>
+            <p><input type="radio" name="question7" value="Not everybody">  (c) Not everybody</p>
+            <input type="button" onclick="Gotoeight()" class="button" value="Next">
+        </div>
+          
+        <div id="eightq" class="hidden">
+            <p class="question">8. What Year and Month did Daddy preach the lesson "LITTLE THINGS THAT MATTER"?</p>
+            <p><input type="radio" name="question8" value="Jan 2021"> (a) Jan 2021</p>
+            <p><input type="radio" name="question8" value="Mar 2021"> (b) Mar 2021</p>
+            <p><input type="radio" name="question8" value="July 2021"> (c) July 2021</p>
+            <input type="button" onclick="Gotonineth()" class="button" value="Next">
+        </div>
+       
+        <div id="ninethq" class="hidden">
+            <p class="question">9. The extra supply that God gave a man under the influence of divine grace is</p>
+            <p><input type="radio" name="question9" value="Righteousness"> (a) Righteousness</p>
+            <p><input type="radio" name="question9" value="Prayer"> (b) Prayer</p>
+            <p><input type="radio" name="question9" value="Faith"> (c) Faith</p>
+            <input type="button" onclick="Gototenth()" class="button" value="Next">
+        </div>
+           
+        <div id="tenthq" class="hidden">
+            <p class="question">10. RLCC text, LET BROTHER LOVE CONTINUE, can be gotten from the book of?</p>
+            <p><input type="radio" name="question10" value="1 John"> (a) 1 John</p>
+            <p><input type="radio" name="question10" value="Psalm"> (b) Psalm</p>
+            <p><input type="radio" name="question10" value="Hebrews"> (c) Hebrews</p>
+            <input type="button" id="done" class="button" value="I'm Done!" onclick="check()">
+        </div>
+
+       
+    </form>
+
+    <h3 id="reply"></h3>
+    
+     
+    
+
+</body>
+</html>
